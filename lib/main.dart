@@ -48,7 +48,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -61,54 +60,52 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-           const Padding(
-             padding: EdgeInsets.fromLTRB(8, 20, 8, 8),
-             child: Icon(
-               Icons.lock_rounded,
-               color: Colors.blue,
-               size: 120.0,
-             ),
-           ),
-            const Padding(
-              padding: EdgeInsets.fromLTRB(8, 50, 8, 8),
-              child: Text(
-                'Welcome to Saifty!',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 24,
+        child: SingleChildScrollView(
+          child: Column(
+            // Column is also a layout widget. It takes a list of children and
+            // arranges them vertically. By default, it sizes itself to fit its
+            // children horizontally, and tries to be as tall as its parent.
+            //
+            // Invoke "debug painting" (press "p" in the console, choose the
+            // "Toggle Debug Paint" action from the Flutter Inspector in Android
+            // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
+            // to see the wireframe for each widget.
+            //
+            // Column has various properties to control how it sizes itself and
+            // how it positions its children. Here we use mainAxisAlignment to
+            // center the children vertically; the main axis here is the vertical
+            // axis because Columns are vertical (the cross axis would be
+            // horizontal).
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              const Padding(
+                padding: EdgeInsets.fromLTRB(8, 20, 8, 8),
+                child: Icon(
+                  Icons.lock_rounded,
+                  color: Colors.blue,
+                  size: 120.0,
                 ),
-                textAlign: TextAlign.center,
               ),
-            ),
-            const Padding(
-              padding: EdgeInsets.fromLTRB(8, 10, 8, 8),
-              child: Text(
-                'keep your data safe!',
-                style: TextStyle(
-                  color: Colors.blueGrey,
-                  fontSize: 15
+              const Padding(
+                padding: EdgeInsets.fromLTRB(8, 50, 8, 8),
+                child: Text(
+                  'Welcome to Saifty!',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 24,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
-                textAlign: TextAlign.center,
               ),
-            ),
-            const Padding(
+              const Padding(
+                padding: EdgeInsets.fromLTRB(8, 10, 8, 8),
+                child: Text(
+                  'keep your data safe!',
+                  style: TextStyle(color: Colors.blueGrey, fontSize: 15),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              const Padding(
                 padding: EdgeInsets.fromLTRB(8, 40, 8, 8),
                 child: TextField(
                   decoration: InputDecoration(
@@ -117,74 +114,71 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
               ),
-            const Padding(
-              padding: EdgeInsets.fromLTRB(8, 10, 8, 8),
-              child: TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: 'Password',
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(8, 10, 8, 8),
-              child: SizedBox(
-                width: double.infinity,
-                height: 50,
-                child: ElevatedButton(
-                  onPressed: validate,
-                  child: const Text('Login'),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(8, 10, 8, 8),
-              child: TextButton(
-                onPressed: () { },
-                child: const Text(
-                  'Forget Password?',
-                  style: TextStyle(
-                      color: Colors.blue,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16
+              const Padding(
+                padding: EdgeInsets.fromLTRB(8, 10, 8, 8),
+                child: TextField(
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Password',
                   ),
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(8, 100, 8, 8),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  const Text(
-                    'Don\'t have an account? ',
+              Padding(
+                padding: const EdgeInsets.fromLTRB(8, 10, 8, 8),
+                child: SizedBox(
+                  width: double.infinity,
+                  height: 50,
+                  child: ElevatedButton(
+                    onPressed: validate,
+                    child: const Text('Login'),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(8, 10, 8, 8),
+                child: TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    'Forget Password?',
                     style: TextStyle(
-                        color: Colors.blueGrey,
+                        color: Colors.blue,
                         fontWeight: FontWeight.bold,
-                        fontSize: 16
-                    ),
+                        fontSize: 16),
                   ),
-                  TextButton(
-                    onPressed: () { },
-                    child: const Text(
-                      'Register!',
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(8, 100, 8, 8),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    const Text(
+                      'Don\'t have an account? ',
                       style: TextStyle(
-                          color: Colors.blue,
+                          color: Colors.blueGrey,
                           fontWeight: FontWeight.bold,
-                          fontSize: 16
+                          fontSize: 16),
+                    ),
+                    TextButton(
+                      onPressed: () {},
+                      child: const Text(
+                        'Register!',
+                        style: TextStyle(
+                            color: Colors.blue,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
   }
-  void validate(){
 
-  }
+  void validate() {}
 }

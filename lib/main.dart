@@ -13,17 +13,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Login Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
+          // This is the theme of your application.
+          //
+          // Try running your application with "flutter run". You'll see the
+          // application has a blue toolbar. Then, without quitting the app, try
+          // changing the primarySwatch below to Colors.green and then invoke
+          // "hot reload" (press "r" in the console where you ran "flutter run",
+          // or simply save your changes to "hot reload" in a Flutter IDE).
+          // Notice that the counter didn't reset back to zero; the application
+          // is not restarted.
+          primarySwatch: Colors.indigo,
+          fontFamily: 'old english'),
       home: const MyHomePage(title: 'Login Demo'),
     );
   }
@@ -57,6 +57,30 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
+      persistentFooterButtons: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const Text(
+              'Don\'t have an account? ',
+              style: TextStyle(
+                  color: Colors.blueGrey,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16),
+            ),
+            TextButton(
+              onPressed: () {},
+              child: Text(
+                'Register!',
+                style: TextStyle(
+                    color: Theme.of(context).primaryColor,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16),
+              ),
+            ),
+          ],
+        ),
+      ],
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
@@ -78,11 +102,11 @@ class _MyHomePageState extends State<MyHomePage> {
             // horizontal).
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              const Padding(
-                padding: EdgeInsets.fromLTRB(8, 20, 8, 8),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(8, 20, 8, 8),
                 child: Icon(
                   Icons.lock_rounded,
-                  color: Colors.blue,
+                  color: Theme.of(context).primaryColor,
                   size: 120.0,
                 ),
               ),
@@ -105,22 +129,39 @@ class _MyHomePageState extends State<MyHomePage> {
                   textAlign: TextAlign.center,
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.fromLTRB(8, 40, 8, 8),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(8, 40, 8, 8),
                 child: TextField(
+                  style: const TextStyle(color: Colors.blueGrey),
+                  strutStyle: const StrutStyle(fontSize: 14),
                   decoration: InputDecoration(
-                    border: OutlineInputBorder(),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15.0)),
                     hintText: 'Email',
+                    fillColor: const Color.fromARGB(255, 202, 202, 202),
+                    filled: true,
                   ),
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.fromLTRB(8, 10, 8, 8),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(8, 10, 8, 8),
                 child: TextField(
+                  autocorrect: false,
                   obscureText: true,
+                  style: const TextStyle(color: Colors.blueGrey),
+                  strutStyle: const StrutStyle(
+                    fontSize: 14,
+                  ),
                   decoration: InputDecoration(
-                    border: OutlineInputBorder(),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15.0)),
                     hintText: 'Password',
+                    fillColor: const Color.fromARGB(255, 202, 202, 202),
+                    filled: true,
+                    suffixIcon: IconButton(
+                      onPressed: () => {},
+                      icon: const Icon(Icons.remove_red_eye),
+                    ),
                   ),
                 ),
               ),
@@ -132,6 +173,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: ElevatedButton(
                     onPressed: validate,
                     child: const Text('Login'),
+                    style: ButtonStyle(
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15.0),
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -139,38 +187,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 padding: const EdgeInsets.fromLTRB(8, 10, 8, 8),
                 child: TextButton(
                   onPressed: () {},
-                  child: const Text(
+                  child: Text(
                     'Forget Password?',
                     style: TextStyle(
-                        color: Colors.blue,
+                        color: Theme.of(context).primaryColor,
                         fontWeight: FontWeight.bold,
                         fontSize: 16),
                   ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(8, 100, 8, 8),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    const Text(
-                      'Don\'t have an account? ',
-                      style: TextStyle(
-                          color: Colors.blueGrey,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16),
-                    ),
-                    TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        'Register!',
-                        style: TextStyle(
-                            color: Colors.blue,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16),
-                      ),
-                    ),
-                  ],
                 ),
               ),
             ],
